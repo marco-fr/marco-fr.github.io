@@ -10,7 +10,39 @@
 
 <body>
     <div class="content">
-        <h1>Chess Engine</h1>
+        <h1 class="project-title">Chess Engine</h1>
+        <div class="info">
+            My engine is about 1500+-300 rated. It's hard to tell since I don't know the rating of the lichess bots.
+            The ideas for the techniques I used pretty much all came from the chess programming wiki.
+            Right now, I have implemented minimax with alpha-beta pruning, bitboards, magic bitboards, transposition
+            table, null-moves and quiescence.
+            <h3>Minimax and Alpha-Beta Pruning</h3>
+            The main way the engine works is using the minimax algorithm. It searches every possible move in the game
+            tree down to a certain number of moves. Once there, it evaluates the position using a heuristic. Mine only
+            uses material and piece position to evaluation. A positive evaluation means white is winning, negative is 
+            black and zero is equal. Each depth in the tree corresponds to a turn, either white or black. If it is whites turn, that 
+            returns the maximum value of its children. The opposite is true for black's turn. It alternates between max and min. I suspect that my basic evaluation is one of the main limiting factors of performance.
+            I would like to add better evaluation like pawn structure and development, but I am not good at chess, so
+            I don't know how to implment that.
+
+            Alpha-Beta pruning is an extension of minimax to remove redundant portions of the search tree.
+            <h3>Bitboards and Magic Bitboards</h3>
+            A chess board is an eight by eight board so it has 64 squares. Each type of piece can be decribed by
+            a single unsigned 64 bit integer. Since there are 6 pieces and 2 colors, it takes 12 64 bit integers to
+            represent the entire board. I also used 64 bit integers to store other important information like a masks of pieces
+            for each color and the attacks.
+            However, the most interesting use is with magic bitboards. Unlike the king and knights that have relatively simple
+            movements, the movement of bishops, rooks and the queen depend on what is blocking them. 
+            <h3>Transposition Table</h3>
+            After evalutating a certain position, the position and it's score should be stored in a transposition table since
+            many position repeat and there is no need to compute the same position again. It is not as simple as storing the evaluation since the position is evaluated at different depths and turns
+            and would have different evals as a result. My engine stores the result with the highest depth. Due to alpha-beta pruning,
+            the exact score may not be known, so that must also be taken into account.
+            <h3>Quiescence</h3>
+            A quiescence search happens at the end of the regular search. It will continue searching while there are still captures to be made.
+            This is very important for situations where the regular search ends at a capture, but the next move would be a recapture. Without quiescence,
+            this evaluation would be very inaccurate. 
+        </div>
     </div>
 </body>
 

@@ -1,15 +1,33 @@
-  body{
-    background-color: rgb(255, 255, 255);
+body {
+  background: linear-gradient(-45deg, #84b8c3, #e59a7c, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+  font-family: "Computer Modern Sans", sans-serif;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
   }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
   .content {
+      display: flex;
+      flex-direction: row;
       color: rgb(0, 0, 0);
       text-align: center;
+      align-items: center;
+      justify-content: space-between;
       font-family: 'Roboto', sans-serif;
   }
 
   .text-item {
-      display: flex;
-      flex-direction: column;
       text-align: left;
   }
 
@@ -17,27 +35,107 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: auto;
       padding: 25px;
   }
 
   .item {
+    display: flex;
+    flex-direction: row;
       border-style: solid;
       border-color: black;
-      border-width: 2;
-      border-radius: 15px;
-      width: 25%;
-      min-width: 300px;
-      padding: 25px;
+      border-width: 0px;
+      box-shadow: black 2px 3px;
+      border-radius: 10px;
+      width: auto;
+      background-color: #ffffff;
+      min-width: 400px;
+      min-height: 100px;
+      padding: 32px 25px;
       margin: 5px;
       cursor: pointer;
+      transition: background-color 300ms ease-out 100ms;
   }
 
   .item:hover{
-    color:aliceblue;
+    background-color: #00838d;
+  }
+  .item p {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #666;
+  }
+
+  .item:hover p {
+    transition: all 0.3s ease-out 100ms;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 50%;
+  }
+
+  .project-title {
+    text-align: left;
   }
 
   a:link, a:visited {
     color: black;
     text-decoration: none;
     display: inline-block;
+  }
+
+  .profile{
+    display: block;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    width:25%;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: black 2px 2px;
+    background-color: aliceblue;
+  }
+  .projects{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    width:55%;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: black 2px 2px;
+    background-color: aliceblue;
+  }
+.project_image {
+  width: auto;
+  height:auto;
+  padding: 10px;
+  width: 150px;
+}
+
+  .circular_image {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: blue;
+    /* commented for demo
+    float: left;
+    margin-left: 125px;
+    margin-top: 20px;
+    */
+    
+    /*for demo*/
+  }
+  .circular_image img{
+    width:100%;
   }

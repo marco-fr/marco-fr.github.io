@@ -6,26 +6,60 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <div class="content">
-        <h1>Marco Frigo</h1>
-        <h3>Electrical Engineering @ UIUC</h3>
+        <div class="profile">
+            <img class="circular_image" src="images/profile.jpg" alt=""> 
+            <h1>Marco Frigo</h1>
+            <h3>Electrical Engineering</h3> <h4>@ University of Illinois at Urbana-Champaign</h4>
+            <a href="https://github.com/marco-fr" target="blank" class="fa fa-2x fa-github"></a>
+            <a href="https://www.linkedin.com/in/marco-f-543773204/" target="blank" class="fa fa-2x fa-linkedin"></a>
+        </div>
+        <div class="projects">
         <h1>Projects</h1>
         <div class="container">
-            <a href="projects/chess.html" style="text-decoration: none">
+
+            <a href="https://github.com/marco-fr/chess" style="text-decoration: none">
                 <div class="item text-item">
-                    <b>Chess Engine</b>
+                    <img class="project_image" src="images/chess.png" alt=""> 
+                    <div>
+                    <h4>Chess Engine</h4>
                     C++
+                    <p>My engine is about 1500 rated. I connected it to lichess and it can beat Stockfish level 5.
+                        The ideas for the techniques I used pretty much all came from the chess programming wiki.
+                        Right now, I have implemented minimax with alpha-beta pruning, bitboards, magic bitboards, transposition
+                        table, null-moves and quiescence.</p>
+                    </div>
                 </div>
             </a>
-            <a href="projects/emulator.html" style="text-decoration: none">
+            <a href="https://github.com/marco-fr/6502-emulator" style="text-decoration: none">
                 <div class="item text-item">
-                    <b>6502 Emulator</b>
+                    <img class="project_image" src="images/6502.png" alt=""> 
+                    <div>
+                    <h4>6502 Emulator</h4>
                     C++
+                    <p>The 6502 is a processor from the 1970s. I implemented all 12 addressing modes, 6 registers, and 151 opcodes.
+                        There is not really a use for writing an emulator like I did by itself because a CPU can't do much alone. 
+                    </p>
+                    </div>
                 </div>
             </a>
+            <a href="https://github.com/marco-fr/neural-net" style="text-decoration: none">
+                <div class="item text-item">
+                    <img class="project_image" src="images/neural.png" alt=""> 
+                    <div>
+                    <h4>Neural Network</h4>
+                    C++
+                    <p>I am making this neural network from scratch to understand how it works and the optimizations.
+                        There are still some problems, so it does not always work well.
+                    </p>
+                    </div>
+                </div>
+            </a>
+        </div>
         </div>
     </div>
 </body>

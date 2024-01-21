@@ -10,7 +10,26 @@
 
 <body>
     <div class="content">
-        <h1>Emulator</h1>
+        <h1>6502 Emulator</h1>
+        <div class="info">
+            The 6502 is a processor from the 1980s. There is not really a use for writing an emulator
+            like I did by itself because a CPU can't do much alone. Without also emulating graphics, input and
+            many other things, I essentially have an annoying way to execute assembly code. I did this in the
+            hopes that I would learn 6502 assembly, but I found out that just because I know all the instructions
+            doesn't mean I can use them effectively.
+            <h3>Registers</h3>
+            The processor has 6 registers. They are the stack pointer, program counter, processor status, X, Y and accumulator.
+            The stack pointer is one byte since it only addresses from 0x0100 to 0x01FF. The stack is not actually on the
+            first byte worth of memory addresses. The first portion of memory is
+            for the zero page. These addresses are accessed with special opcodes because they can be referenced using one byte,
+            so they are faster and take fewer cycles. The stack is right above the zero page. The program counter is two bytes
+            since it needs to point to all possible addresses on the machine. It has 16 bits which makes the 6502 a 16 bit processor.
+            The X, Y and accumulator are used for loading, storing and other general uses. 
+            <h3>Addressing Modes</h3>
+            <h3>Instructions</h3>
+            <h3>Addition and Subtraction</h3>
+            <h3>Decimal Mode</h3>
+        </div>
     </div>
 </body>
 
