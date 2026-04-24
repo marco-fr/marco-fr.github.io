@@ -1,67 +1,108 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
-    <title>Home Page</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marco Frigo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="content">
-        <div class="profile">
-            <img class="circular_image" src="images/profile.jpg" alt=""> 
-            <h1>Marco Frigo</h1>
-            <h3>Electrical Engineering</h3> <h4>@ University of Illinois at Urbana-Champaign</h4>
-            <a href="https://github.com/marco-fr" target="blank" class="fa fa-2x fa-github"></a>
-            <a href="https://www.linkedin.com/in/marco-f-543773204/" target="blank" class="fa fa-2x fa-linkedin"></a>
-        </div>
-        <div class="projects">
-        <h1>Projects</h1>
-        <div class="container">
+  <div class="container">
 
-            <a href="https://github.com/marco-fr/chess" style="text-decoration: none">
-                <div class="item text-item">
-                    <img class="project_image" src="images/chess.png" alt=""> 
-                    <div>
-                    <h4>Chess Engine</h4>
-                    C++
-                    <p>My engine is about 1500 rated. I connected it to lichess and it can beat Stockfish level 5.
-                        The ideas for the techniques I used pretty much all came from the chess programming wiki.
-                        Right now, I have implemented minimax with alpha-beta pruning, bitboards, magic bitboards, transposition
-                        table, null-moves and quiescence.</p>
-                    </div>
-                </div>
-            </a>
-            <a href="https://github.com/marco-fr/6502-emulator" style="text-decoration: none">
-                <div class="item text-item">
-                    <img class="project_image" src="images/6502.png" alt=""> 
-                    <div>
-                    <h4>6502 Emulator</h4>
-                    C++
-                    <p>The 6502 is a processor from the 1970s. I implemented all 12 addressing modes, 6 registers, and 151 opcodes.
-                        There is not really a use for writing an emulator like I did by itself because a CPU can't do much alone. 
-                    </p>
-                    </div>
-                </div>
-            </a>
-            <a href="https://github.com/marco-fr/neural-net" style="text-decoration: none">
-                <div class="item text-item">
-                    <img class="project_image" src="images/neural.png" alt=""> 
-                    <div>
-                    <h4>Neural Network</h4>
-                    C++
-                    <p>I am making this neural network from scratch to understand how it works and the optimizations.
-                        There are still some problems, so it does not always work well.
-                    </p>
-                    </div>
-                </div>
-            </a>
+    <header>
+      <h1>Marco Frigo</h1>
+      <!-- <p class="tagline">BS-MS Student</p> -->
+      <nav>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#research">Research</a>
+        <!-- <a href="#projects">Projects</a> -->
+      </nav>
+    </header>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I am a incoming M.S student at the <a href="https://illinois.edu/">University of Illinois Urbana-Champaign</a>, advised by <a href="https://charithmendis.com/">Prof. Charith Mendis</a>.
+        My research interests are broadly in computer architecture and compilers. I have been mainly working on
+        the <a href="https://act-compiler.github.io/">ACT (Accelerator Compiler Toolkit) Ecosystem</a>, which automatically generates software tools from ISA specifications.
+        I also co-presented the tutorial on ACT at MICRO 2025 and ASPLOS 2026.
+      </p>
+
+      <div class="contact-links">
+        <a href="mailto:mfrigo3@illinois.edu">mfrigo3@illinois.edu</a>
+        <a href="https://github.com/marco-fr">GitHub</a>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">M.S. in Electrical and Computer Engineering</span>
+          <span class="entry-date">Aug 2026 – </span>
         </div>
+        <div class="entry-sub">University of Illinois at Urbana-Champaign</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">B.S. in Computer Engineering</span>
+          <span class="entry-date">Aug 2023 – May 2026</span>
         </div>
-    </div>
+        <div class="entry-sub">University of Illinois at Urbana-Champaign</div>
+      </div>
+
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+
+      <div class="paper">
+        <div class="paper-title">TAIDL: Tensor Accelerator ISA Definition Language with Auto-generation of Scalable Test Oracles</div>
+        <div class="paper-meta">Devansh Jain, <span class="self">Marco Frigo</span>, Jai Arora, Akash Pardeshi, Zhihao Wang, Krut Patel, and Charith Mendis · <em>MICRO 2025</em></div>
+        <div class="paper-links">
+          <a href="https://doi.org/10.1145/3725843.3756075">Paper</a>
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title">ACT: Automatically Generating Compiler Backends from Tensor Accelerator ISA Descriptions</div>
+        <div class="paper-meta">Devansh Jain, Akash Pardeshi, <span class="self">Marco Frigo</span>, Krut Patel, Kaustubh Khulbe, Jai Arora, and Charith Mendis · <em>arXiv, Oct 2025</em></div>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2510.09932">arXiv</a>
+        </div>
+      </div>
+
+
+    </section>
+
+    <!-- ── Projects ── -->
+    <!--
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <div class="paper">
+        <div class="paper-title">Project Name</div>
+        <div class="paper-meta">2024</div>
+        <div class="paper-desc">
+        </div>
+        <div class="paper-links">
+          <a href="#">GitHub</a>
+        </div>
+      </div>
+
+    </section>
+    -->
+
+    <footer>
+      Last updated April 2026.
+    </footer>
+
+  </div>
 </body>
-
 </html>
