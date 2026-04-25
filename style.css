@@ -231,6 +231,25 @@ a:hover {
   text-underline-offset: 2px;
 }
 
+/* ── Blog / Project pages ── */
+.post-image {
+  width: 100%;
+  margin: 32px 0;
+  border: 1px solid var(--border);
+}
+
+.post-image img {
+  width: 100%;
+  display: block;
+}
+
+.post-image figcaption {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.78rem;
+  color: var(--muted);
+  padding: 8px 0 0;
+}
+
 /* ── Footer ── */
 footer {
   padding: 36px 0 56px;

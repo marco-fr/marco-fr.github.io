@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess Engine — Marco Frigo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <h1>Chess Engine</h1>
+      <nav>
+        <a href="../index.html">← Home</a>
+        <a href="https://github.com/marco-fr/chess">GitHub</a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Overview</h2>
+      <p>
+        This is a chess engine written in C++. It can communicate using the XBoard/CECP protocol, so you can play
+        against it through the XBoard GUI or drive it from the command line. The goal was to build
+        something that plays reasonably well by implementing the classical techniques that power most
+        strong engines. It has a compact board representation, a deep search with good pruning, and a simple
+        evaluation function. Overall, it plays at around a 1500 ELO level.
+      </p>
+
+      <figure class="post-image">
+        <img src="images/xboard.png" alt="Chess engine running in XBoard">
+        <figcaption>The engine integrated with XBoard.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Board Representation</h2>
+      <p>
+        The board is represented using <em>bitboards</em> where one 64-bit integer per piece type per color
+        and each bit corresponds to a square. This maps naturally onto modern CPU word sizes and lets
+        you compute things like "all squares attacked by white bishops" with a handful of bitwise
+        operations rather than looping over a square array.
+      </p>
+      <p>
+        Sliding piece moves (rooks, bishops, queens) are a bit tricky. For example, a rook's attacks depend on
+        which squares are occupied, so a naive approach would need to walk along each ray at runtime.
+        The engine uses <em>magic bitboards</em> to avoid this. For each square, a magic number is
+        precomputed such that multiplying it by the occupancy bitboard and shifting produces a compact
+        index into a lookup table of precomputed attack sets. Move generation then becomes a single
+        table lookup per piece. 
+      </p>
+    </section>
+
+    <section>
+      <h2>Search</h2>
+      <p>
+        The search is built on <em>minimax with alpha-beta pruning</em>. Minimax explores the game
+        tree assuming both sides play optimally. Alpha-beta cuts off branches that can't influence
+        the final result, typically halving the effective branching factor and allowing roughly twice
+        the search depth for the same computation.
+      </p>
+      <p>
+        On top of that, several standard enhancements are layered in. A <em>transposition table</em>
+        stores previously evaluated positions hashed by Zobrist key, so the same position reached
+        via different move orders is only evaluated once. <em>Move ordering</em> uses the stored hash
+        move as the first candidate, since trying the best known move first maximizes alpha-beta
+        cutoffs. <em>Null-move pruning</em> grants the opponent two moves in a row; if they still
+        can't improve their position, the current position is likely good enough to cut off the
+        search early.
+      </p>
+      <p>
+        Finally, <em>quiescence search</em> extends the horizon at leaf nodes by continuing to
+        search captures and checks. This avoids the horizon effect, where the engine would otherwise
+        stop evaluation at an unstable position. An unstable position could be something like you capture a knight with
+        your queen and the engine stops searching, but the queen would be recaptured in the next turn.
+        From the engine's perspective, it thinks its a good capture, but it does not see that it is actually bad
+        due to limited search depth. My quiescence search continues searching until there are no more captures (to a certain depth)
+        and the board is "quiet"/quiescent.
+      </p>
+    </section>
+
+    <section>
+      <h2>Evaluation</h2>
+      <p>
+        The evaluation function is simple. It is material count plus piece-square tables.
+        Each piece type has a table that assigns a bonus or penalty based on its square, encoding
+        heuristics like preferring knights near the center, rooks on open files, or keeping the
+        king tucked away in the endgame. This is fast to compute and enough to produce sensible play.
+        This heuristic evaluation function is probably the next most important to improve upon. I would
+        like to have a measure of king safety, pawn structure and other factors.
+      </p>
+
+    </section>
+
+    <footer>
+      Last updated April 2026.
+    </footer>
+
+  </div>
+</body>
+</html>

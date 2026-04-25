@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Out-of-Order RISC-V Processor — Marco Frigo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <h1>Out-of-Order RISC-V Processor</h1>
+      <nav>
+        <a href="../index.html">← Home</a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Overview</h2>
+      <p>
+        This is an out-of-order RV32IM processor written in SystemVerilog, built for ECE 411 at
+        UIUC. It implements the explicit register renaming (ERR) microarchitecture where instructions are fetched
+        and decoded in order, renamed onto a larger physical register file, dispatched to reservation
+        stations where they wait for their operands, executed out of order across multiple functional
+        units, and finally retired in order through a reorder buffer.
+      </p>
+    </section>
+
+    <footer>
+      Last updated April 2026.
+    </footer>
+
+  </div>
+</body>
+</html>
