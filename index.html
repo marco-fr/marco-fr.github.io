@@ -6,7 +6,7 @@
   <title>Marco Frigo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans+Condensed:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,19 +14,16 @@
 
     <header>
       <h1>Marco Frigo</h1>
-      <!-- <p class="tagline">BS-MS Student</p> -->
-      <nav>
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#research">Research</a>
-        <a href="#projects">Projects</a>
-      </nav>
+      <div class="contact-links">
+        <a href="mailto:mfrigo3@illinois.edu">mfrigo3@illinois.edu</a>
+        <a href="https://github.com/marco-fr">GitHub</a>
+        <a href="https://www.linkedin.com/in/marco-f-543773204/">LinkedIn</a>
+      </div>
     </header>
 
     <section id="about">
-      <h2>About</h2>
       <p>
-        I am an incoming M.S. student at the <a href="https://illinois.edu/">University of Illinois Urbana-Champaign</a>,
+        I am an M.S. student at the <a href="https://illinois.edu/">University of Illinois Urbana-Champaign</a>,
         advised by <a href="https://charithmendis.com/">Prof. Charith Mendis</a>. My research interests
         are broadly in computer architecture and compilers.
       </p>
@@ -38,12 +35,6 @@
       <p>
         Beyond research, I enjoy working on hardware and low-level systems projects.
       </p>
-
-      <div class="contact-links">
-        <a href="mailto:mfrigo3@illinois.edu">mfrigo3@illinois.edu</a>
-        <a href="https://github.com/marco-fr">GitHub</a>
-        <a href="https://www.linkedin.com/in/marco-f-543773204/">LinkedIn</a>
-      </div>
     </section>
 
     <section id="education">
@@ -71,35 +62,36 @@
       <h2>Research</h2>
 
       <div class="paper">
-        <div class="paper-title">TAIDL: Tensor Accelerator ISA Definition Language with Auto-generation of Scalable Test Oracles</div>
-        <div class="paper-meta">Devansh Jain, <span class="self">Marco Frigo</span>, Jai Arora, Akash Pardeshi, Zhihao Wang, Krut Patel, and Charith Mendis · <em>MICRO 2025</em></div>
-        <div class="paper-links">
-          <a href="https://doi.org/10.1145/3725843.3756075">Paper</a>
-        </div>
-      </div>
-
-      <div class="paper">
         <div class="paper-title">Automatically Generating ML Compiler Backends from Tensor Accelerator ISA Descriptions</div>
-        <div class="paper-meta">Devansh Jain, Akash Pardeshi, <span class="self">Marco Frigo</span>, Kaustubh Khulbe, Krut Patel, Saatvik Lochan, Jai Arora, and Charith Mendis · <em>OOPSLA 2026</em></div>
+        <div class="paper-meta">Devansh Jain, Akash Pardeshi, <span class="self">Marco Frigo</span>, Kaustubh Khulbe, Krut Patel, Saatvik Lochan, Jai Arora, and Charith Mendis</div>
         <div class="paper-links">
+          <span class="venue">OOPSLA 2026</span>
           <a href="https://doi.org/10.1145/3839457">Paper</a>
           <a href="https://arxiv.org/abs/2510.09932">arXiv</a>
         </div>
       </div>
 
-
+      <div class="paper">
+        <div class="paper-title">TAIDL: Tensor Accelerator ISA Definition Language with Auto-generation of Scalable Test Oracles</div>
+        <div class="paper-meta">Devansh Jain, <span class="self">Marco Frigo</span>, Jai Arora, Akash Pardeshi, Zhihao Wang, Krut Patel, and Charith Mendis</div>
+        <div class="paper-links">
+          <span class="venue">MICRO 2025</span>
+          <a href="https://doi.org/10.1145/3725843.3756075">Paper</a>
+        </div>
+      </div>
     </section>
 
-    <!-- ── Projects ── -->
     <section id="projects">
       <h2>Projects</h2>
 
       <div class="paper">
-        <div class="paper-title"><a href="projects/chess.html">Chess Engine</a></div>
-        <div class="paper-meta">C++ chess engine with bitboard representation and alpha-beta search, plays around 1500 ELO.</div>
-        <div class="paper-links">
-          <a href="https://github.com/marco-fr/chess">GitHub</a>
-        </div>
+        <div class="paper-title"><a href="projects/vlsi-riscv.html">VLSI RISC-V Processor</a></div>
+        <div class="paper-meta">Single-cycle RV32I CPU with a custom standard cell library, a bit-sliced datapath laid out by hand, and automatic place and route in Innovus.</div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title"><a href="projects/ooo-riscv.html">Out-of-Order RISC-V Processor</a></div>
+        <div class="paper-meta">RV32IM processor in SystemVerilog using explicit register renaming.</div>
       </div>
 
       <div class="paper">
@@ -111,19 +103,12 @@
       </div>
 
       <div class="paper">
-        <div class="paper-title"><a href="projects/ooo-riscv.html">Out-of-Order RISC-V Processor</a></div>
-        <div class="paper-meta">RV32IM processor in SystemVerilog using explicit register renaming.</div>
+        <div class="paper-title"><a href="projects/chess.html">Chess Engine</a></div>
+        <div class="paper-meta">C++ chess engine with bitboard representation and alpha-beta search, plays around 1500 ELO.</div>
         <div class="paper-links">
+          <a href="https://github.com/marco-fr/chess">GitHub</a>
         </div>
       </div>
-
-      <div class="paper">
-        <div class="paper-title"><a href="projects/vlsi-riscv.html">VLSI RISC-V Processor</a></div>
-        <div class="paper-meta">Single-cycle RV32I CPU with a custom standard cell library, a bit-sliced datapath laid out by hand, and automatic place and route in Innovus.</div>
-        <div class="paper-links">
-        </div>
-      </div>
-
     </section>
 
     <footer>

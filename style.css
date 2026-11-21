@@ -8,23 +8,32 @@
   --bg: #ffffff;
   --text: #1a1a1a;
   --muted: #666666;
-  --link: #1a1a1a;
-  --link-hover: #444;
+  --link: #2541a0;
+  --link-hover: #16296b;
   --border: #e5e5e5;
-  --max-width: 660px;
+  --max-width: 700px;
+
+  --serif: 'IBM Plex Serif', Georgia, serif;
+  --sans: 'IBM Plex Sans Condensed', 'Arial Narrow', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Lora', Georgia, serif;
+  font-family: var(--serif);
   font-size: 18px;
-  line-height: 1.75;
+  line-height: 1.7;
   padding: 0 24px;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ── Layout ── */
@@ -35,63 +44,39 @@ body {
 
 /* ── Header ── */
 header {
-  padding: 64px 0 48px;
-  border-bottom: 1px solid var(--border);
+  padding: 80px 0 8px;
 }
 
 header h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 500;
-  letter-spacing: -0.01em;
-  margin-bottom: 6px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
 }
 
-header .tagline {
-  color: var(--muted);
-  font-style: italic;
-  font-size: 1rem;
-}
-
-/* ── Nav ── */
+/* ── Nav (project pages) ── */
 nav {
-  margin-top: 28px;
+  margin-top: 14px;
   display: flex;
-  gap: 24px;
+  gap: 6px 22px;
   flex-wrap: wrap;
 }
 
 nav a {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.85rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  text-decoration: none;
-}
-
-nav a:hover {
-  color: var(--text);
+  font-family: var(--sans);
+  font-size: 0.95rem;
 }
 
 /* ── Sections ── */
 section {
-  padding: 56px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-section:last-of-type {
-  border-bottom: none;
+  padding-top: 52px;
 }
 
 h2 {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--muted);
-  margin-bottom: 28px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 18px;
 }
 
 p {
@@ -112,31 +97,33 @@ a:hover {
   color: var(--link-hover);
 }
 
+a:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.86em;
+}
+
 /* ── Contact ── */
 .contact-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 6px 22px;
+  margin-top: 14px;
 }
 
 .contact-links a {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.9rem;
-  text-decoration: none;
-  color: var(--muted);
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 1px;
-}
-
-.contact-links a:hover {
-  color: var(--text);
-  border-color: var(--text);
+  font-family: var(--sans);
+  font-size: 0.95rem;
 }
 
 /* ── Education ── */
 .entry {
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .entry:last-child {
@@ -149,7 +136,7 @@ a:hover {
   align-items: baseline;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .entry-title {
@@ -158,28 +145,22 @@ a:hover {
 }
 
 .entry-date {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.82rem;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
   color: var(--muted);
   white-space: nowrap;
 }
 
 .entry-sub {
-  font-style: italic;
   color: var(--muted);
   font-size: 0.95rem;
   margin-bottom: 6px;
 }
 
-.entry-desc {
-  font-size: 0.95rem;
-  color: #444;
-  line-height: 1.65;
-}
-
 /* ── Research / Projects ── */
 .paper {
-  margin-bottom: 36px;
+  margin-bottom: 28px;
 }
 
 .paper:last-child {
@@ -189,79 +170,83 @@ a:hover {
 .paper-title {
   font-weight: 500;
   font-size: 1rem;
+  line-height: 1.45;
   margin-bottom: 4px;
 }
 
 .paper-meta {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.82rem;
+  font-family: var(--sans);
+  font-size: 0.92rem;
   color: var(--muted);
-  margin-bottom: 8px;
-}
-
-.paper-desc {
-  font-size: 0.95rem;
-  color: #444;
-  line-height: 1.65;
+  margin-bottom: 6px;
 }
 
 .paper-links {
-  margin-top: 8px;
+  margin-top: 6px;
   display: flex;
-  gap: 14px;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 16px;
+}
+
+.paper-links .venue {
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text);
 }
 
 .paper-links a {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.8rem;
-  text-decoration: none;
-  color: var(--muted);
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 1px;
-}
-
-.paper-links a:hover {
-  color: var(--text);
-  border-color: var(--text);
+  font-family: var(--sans);
+  font-size: 0.92rem;
 }
 
 /* ── Author self-highlight ── */
 .self {
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  color: var(--text);
+  font-weight: 600;
 }
 
 /* ── Blog / Project pages ── */
+/* The figure shrinks to its image and centers; the caption wraps to the
+   image's width instead of widening the figure. */
 .post-image {
-  margin: 32px 0;
-  border: 1px solid var(--border);
-  overflow: hidden;
+  width: fit-content;
+  max-width: 100%;
+  margin: 32px auto;
+}
+
+.post-image:last-child {
+  margin-bottom: 0;
 }
 
 .post-image img {
   display: block;
   max-width: 100%;
   height: auto;
+  border: 1px solid var(--border);
 }
 
 .post-image figcaption {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.78rem;
+  width: 0;
+  min-width: 100%;
+  font-family: var(--sans);
+  font-size: 0.9rem;
   color: var(--muted);
-  padding: 8px 0 0;
+  padding-top: 8px;
 }
 
 /* ── Footer ── */
 footer {
-  padding: 36px 0 56px;
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.8rem;
+  padding: 64px 0 56px;
+  font-family: var(--sans);
+  font-size: 0.9rem;
   color: var(--muted);
 }
 
 @media (max-width: 480px) {
   body { font-size: 17px; }
-  header { padding: 40px 0 32px; }
-  header h1 { font-size: 1.6rem; }
-  section { padding: 40px 0; }
+  header { padding-top: 48px; }
+  header h1 { font-size: 2rem; }
+  section { padding-top: 40px; }
 }
